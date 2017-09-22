@@ -141,7 +141,7 @@ def check_likes(call):
     else:              
         try:
             if vk.is_user_liked_post("https://vk.com/qiwirussia?w=wall-13883743_607162", user_dict[chat_id]["vk"]):
-                if qw.send_p2p(qiwi_token, to_qw=user_dict[chat_id]["qw"], sum_p2p=1, comment=str(chat_id)) != "OK":
+                if qw.send_p2p(qiwi_token, to_qw=user_dict[chat_id]["qw"], sum_p2p=1, comment=str(chat_id)) == "OK":
                     if db.assign_task_to_user(chat_id):
                         bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text="Успешно!")
                 else:
